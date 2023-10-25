@@ -12,7 +12,7 @@ def download_video(url):
     while os.path.exists(filename):
         filename = video.title + ' (' + str(i) + ')' + '.mp4'
         i += 1
-    video.download(filename=filename)
+    video.download(filename)
 
 def verify_youtube_url(url):
     try:
@@ -25,5 +25,9 @@ url = input('Enter a YouTube video URL: ')
 while not verify_youtube_url(url):
     print('The YouTube URL is invalid.')
     url = input('Enter a YouTube video URL: ')
+
+youtube = pytube.YouTube(url)
+video_title = youtube.title
+video_filesize = youtube.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().filesize
 
 download_video(url)
