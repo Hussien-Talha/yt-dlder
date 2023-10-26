@@ -1,0 +1,13 @@
+how to setup the yt-dlder:
+
+on mac:
+mkdir ~/bin
+mv /path/to/yt-dlder.sh ~/bin/
+alias yt-dlder='~/yt-dlder.sh'
+source ~/.bash_profile
+
+
+
+to use it :
+
+~/bin/yt-dlder.sh
